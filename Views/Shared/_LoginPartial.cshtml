@@ -1,0 +1,33 @@
+﻿
+    
+
+    @if (Session["email"] != null)
+    {
+        <ul class="nav navbar-nav navbar-right">
+            @if(@Session["email"].Equals("admin@gmail.com"))
+            { 
+                
+                <li>
+                    @Html.ActionLink("Hello " + @Session["email"] + "!", "Index", "Admin")
+                </li>
+                <li>@Html.ActionLink("Logout", "Logout", "Home")</li>
+
+            }
+            else
+            {
+                <li>@Html.ActionLink("Cart", "ViewCart", "Home")</li>
+                <li>
+                    @Html.ActionLink("Hello " + @Session["email"] + "!", "Index", "Home")
+                </li>
+                <li>@Html.ActionLink("Logout", "Logout", "Home")</li>
+                
+            }
+        </ul>
+    }
+    else
+    {
+        <ul class="nav navbar-nav navbar-right">
+            <li>@Html.ActionLink("Register", "Register", "Account")</li>
+            <li>@Html.ActionLink("Login", "Login", "Account")</li>
+        </ul>
+    }

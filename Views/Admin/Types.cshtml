@@ -1,0 +1,66 @@
+﻿
+@{
+    ViewBag.Title = "Types";
+    Layout = null;
+}
+
+<div class="panel panel-default">
+
+    <div class="panel-heading"><h4>Types</h4></div>
+    <div class="panel-body">
+        <div class="row">
+
+            <div class="col-md-3">
+                <div class="thumbnail">
+                    <form action="/Admin/CompanyNameFood">
+                        <button type="submit" id="b1" class="btn btn-default">Food Care</button>
+                    </form>
+                </div>
+            </div>
+
+            <div class="col-md-3">
+                <div class="thumbnail">
+                    <form action="/Admin/CompanyNameFabric">
+                        <button type="submit" id="b2" class="btn btn-default">Fabric Care</button>
+                    </form>
+                </div>
+            </div>
+
+            <div class="col-md-3">
+                <div class="thumbnail">
+                    <form action="/Admin/CompanyNameHome">
+                        <button type="submit" id="b3" class="btn btn-default">Home Care</button>
+                    </form>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+@*<div class="row">
+    <div class="-col-md-12">
+        <div id="result1">
+        </div>
+    </div>
+</div>
+
+@Scripts.Render("~/bundles/jquery")
+<script>
+    $(document).ready(function () {
+
+        $('#b1').click(function () {
+            $('#result1').load('/Admin/CompanyNameFood');
+        });
+
+        $('#b2').click(function () {
+            $('#result1').load('/Admin/CompanyNameFabric');
+        });
+
+        $('#b3').click(function () {
+            $('#result1').load('/Admin/CompanyNameHome');
+        });
+
+        });
+</script>*@
+

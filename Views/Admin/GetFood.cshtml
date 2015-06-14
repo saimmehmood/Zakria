@@ -1,0 +1,137 @@
+﻿
+@{
+    ViewBag.Title = "GetFood";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+@using Zakria.Models
+
+<html>
+<head>
+    <title></title>
+    <script type="text/javascript" src="~/Scripts/lib/jquery-1.10.1.min.js"></script>
+    <script src="~/Scripts/source/jquery.fancybox.js"></script>
+    <link rel="stylesheet" href="~/Content/jquery.fancybox.css" media="screen">
+    
+    
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            /*
+             *  Simple image gallery. Uses default settings
+             */
+
+            $('.fancybox').fancybox();
+        });
+    </script>
+
+</head>
+
+
+
+
+
+
+@*@foreach (Item item in Model)
+{
+    if (item.Company.Equals("Dawlance"))
+    {
+        <div class="panel panel-default">
+
+            <div class="panel-heading"><h4>Dawlance</h4></div>
+            <div class="panel-body">
+                <div class="row">
+
+                    @if (item.Type.Equals("Food Care"))
+                    {
+                        <div class="col-md-4">
+                            <a href="#" class="thumbnail">
+                                <img src="~/Images/Dawlance/Food" alt="...">
+                                <h6 class="h6" style="padding-left:4em">Quantity: @item.Quantity &nbsp;  Price: @item.Price PKR</h6>
+                            </a>
+                        </div>
+                    }
+
+                </div>
+            </div>
+        </div>
+    }
+}*@
+
+
+<body>
+    <div class="panel panel-default">
+
+        <div class="panel-heading"><h4>Dawlance</h4></div>
+        <div class="panel-body">
+            <div class="row">
+
+                <div class="col-md-4">
+                    <div class="thumbnail">
+                        <a class="fancybox" href="~/Images/Dawlance/01.png" data-fancybox-group="gallery" title="Dawlance"><img src="~/Images/Dawlance/01.png" alt="" /></a>
+
+                        <h6 class="h6" style="padding-left:7em">Price: 5,000 PKR</h6>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="thumbnail">
+                        <a class="fancybox" href="~/Images/Dawlance/02.jpg" data-fancybox-group="gallery" title="Dawlance"><img src="~/Images/Dawlance/02.jpg" alt="" /></a>
+
+                        <h6 class="h6" style="padding-left:7em">Price: 5,000 PKR</h6>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="thumbnail">
+                        <a class="fancybox" href="~/Images/Dawlance/03.jpg" data-fancybox-group="gallery" title="Dawlance"><img src="~/Images/Dawlance/03.jpg" alt="" /></a>
+
+                        <h6 class="h6" style="padding-left:7em">Price: 5,000 PKR</h6>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <br>
+
+    <div class="panel panel-default">
+
+        <div class="panel-heading"><h4>Pel</h4></div>
+        <div class="panel-body">
+            <div class="row">
+
+                <div class="col-md-4">
+                    <div class="thumbnail">
+                        <a class="fancybox" href="~/Images/Dawlance/01.png" data-fancybox-group="gallery" title="Pel"><img src="~/Images/Dawlance/01.png" alt="" /></a>
+
+                        <h6 class="h6" style="padding-left:7em">Price: 5,000 PKR</h6>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="thumbnail">
+                        <a class="fancybox" href="~/Images/Dawlance/02.jpg" data-fancybox-group="gallery" title="Pel"><img src="~/Images/Dawlance/02.jpg" alt="" /></a>
+
+                        <h6 class="h6" style="padding-left:7em">Price: 5,000 PKR</h6>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="thumbnail">
+                        <a class="fancybox" href="~/Images/Dawlance/03.jpg" data-fancybox-group="gallery" title="Pel"><img src="~/Images/Dawlance/03.jpg" alt="" /></a>
+
+                        <h6 class="h6" style="padding-left:7em">Price: 5,000 PKR</h6>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>
+
+

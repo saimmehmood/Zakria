@@ -1,0 +1,35 @@
+﻿
+@{
+    ViewBag.Title = "CompanyNameFabric";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="panel panel-default">
+    <div class="panel-heading"><h4>Companies We Deal With</h4></div>
+
+    <div class="panel-body">
+        <div class="row">
+
+            <div class="col-md-4">
+                <form action="/Home/GetClothDawlance">
+                    <button type="submit" class="btn btn-default">Dawlance</button>
+                </form>
+
+                <br />
+
+                <form action="/Home/GetClothPel">
+                    <button type="submit" class="btn btn-default">Pel</button>
+                </form>
+
+                <br />
+
+                <form action="/Home/GetClothHaier">
+                    <button type="submit" class="btn btn-default">Haier</button>
+                </form>
+
+            </div>
+
+        </div>
+    </div>
+</div>
+

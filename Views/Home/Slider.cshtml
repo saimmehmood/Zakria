@@ -1,0 +1,82 @@
+﻿
+@{
+    ViewBag.Title = "Slider";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@using Zakria.Models
+
+<br>
+<div class="col-md-8">
+    <div href="#" class="thumbnail">
+        @foreach (Photo photo in @ViewBag.PhotoList)
+        {
+            if (photo.ModelName.Equals(@ViewBag.Model))
+            {
+                <a href="#"><img src="~/Images/@photo.FileName" alt="..." /></a>
+
+                @*if (@Session["email"] != null)
+                {
+                    <a href="AddCart?id=@item.Id"><h6 style="color:brown"><strong>Add to Cart</strong></h6></a>
+                }
+
+                <h6 class="h6" style="padding-left:7em"><strong>Price:</strong> @item.Price PKR</h6>
+                <h6 class="h6" style="padding-left:7em"><strong>Item Name:</strong> @item.Name </h6>
+                <h6 class="h6" style="padding-left:7em"><strong>Item Model:</strong> @item.Model</h6>*@
+                break;
+            }
+
+        }     
+
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-4">
+        @foreach (Photo photo in @ViewBag.PhotoList)
+        {
+            if (photo.ModelName.Equals(@ViewBag.Model))
+            {
+                <div class="jumbotron">
+                    <div id="myCarousel" class="carousel slide" data-ride="carousel">
+
+                        <!-- Indicators -->
+                        <ol class="carousel-indicators">
+                            <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                            <li data-target="#myCarousel" data-slide-to="1"></li>
+                            <li data-target="#myCarousel" data-slide-to="2"></li>
+                        </ol>
+
+                        <!-- Wrapper for slides -->
+                        <div class="carousel-inner" role="listbox">
+                            <div class="item active">
+                                <img src="~/Images/@photo.F1" alt="F1">
+                            </div>
+
+                            <div class="item">
+                                <img src="~/Images/@photo.F2" alt="F2">
+                            </div>
+
+                            <div class="item">
+                                <img src="~/Images/@photo.F3" alt="F3">
+                            </div>
+                        </div>
+
+                        <!-- Left and right controls -->
+                        <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+                            <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                            <span class="sr-only">Previous</span>
+                        </a>
+                        <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+                            <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                            <span class="sr-only">Next</span>
+                        </a>
+                    </div>
+                </div>
+
+                break;
+            }
+        }
+    </div>
+</div>
+

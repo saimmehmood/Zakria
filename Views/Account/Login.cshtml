@@ -1,0 +1,56 @@
+﻿
+@{
+    ViewBag.Title = "Login in.";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<!--Strongly Typed View-->
+@model Zakria.Models.Customer
+
+<h2>@ViewBag.Title</h2>
+<h3>Use a local account to log in.</h3>
+<br>
+
+<div class="row; col-md-pull-2">
+    @using (Html.BeginForm("ValidateUser", "Account", FormMethod.Post))
+    {
+        <div class="form-group">
+            @Html.HiddenFor(m => m.Id)
+            @Html.LabelFor(m => m.Email)
+
+            @Html.TextBoxFor(m => m.Email, new { @class = "form-control", type = "email", placeholder = "jango@gmail.com", required = true })
+        </div>
+        
+        <div class="form-group">
+            @Html.LabelFor(m => m.Password)
+            @Html.TextBoxFor(m => m.Password, new { @class = "form-control", type = "password", placeholder = "", required = true })
+        </div>
+        
+        <div class="form-group">
+            <div>
+                <input type="submit" value="Log in" class="btn btn-default" />
+            </div>
+        </div>
+    }
+ <!--
+    <form action="/Account/ValidateUser" method="post" enctype="multipart/form-data">
+        <div class="form-group">
+            <label>Email</label>
+            <input type="email" class="form-control" id="email" name="Email" placeholder="jango@gamil.com" required>
+        </div>
+
+        <div class="form-group">
+            <label>Password</label>
+            <input type="password" class="form-control" id="pass" name="Pass" placeholder="" required>
+        </div>
+
+        <div class="form-group">
+            <div>
+                <input type="submit" value="Log in" class="btn btn-default" />
+            </div>
+        </div>
+        <p>
+            <a href="/Account/Register">Register as a new user</a>
+        </p>
+    </form>
+-->
+</div>

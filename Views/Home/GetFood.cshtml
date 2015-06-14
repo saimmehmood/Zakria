@@ -1,0 +1,254 @@
+﻿@{
+    ViewBag.Title = "GetFood";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@using Zakria.Models
+<br>
+
+<!--Dawlance-->
+@foreach (var item in Model)
+{
+
+    if (item.Company.Equals("Dawlance"))
+    {
+        <div class="panel panel-default">
+            <div class="panel-heading"><h4>Dawlance</h4></div>
+
+                <div class="panel-body">
+                    <div class="row">
+                    @foreach (Item itemType in Model)
+                        {
+                            if (itemType.Company.Equals("Dawlance"))
+                            {
+                                if (itemType.Type.Equals("Food Care "))
+                                {
+                                    <div class="col-md-4">
+                                        <div href="#" class="thumbnail">
+                                            @foreach (Photo photo in @ViewBag.PhotoList)
+                                            {
+                                                if (photo.ModelName.Equals(itemType.Model))
+                                                    { 
+                                                        <img src="~/Images/Dawlance/Food/@photo.FileName" alt="..." />
+                                                        
+                                                        if (@Session["email"] != null)
+                                                        {
+                                                            <a href="AddCart?id=@itemType.Id"><h6 style="color:brown"><strong>Add to Cart</strong></h6></a>
+                                                        }
+                                                        
+                                                        <h6 class="h6" style="padding-left:7em"><strong>Price:</strong> @itemType.Price PKR</h6>
+                                                        <h6 class="h6" style="padding-left:7em"><strong>Item Name:</strong> @itemType.Name </h6>
+                                                        <h6 class="h6" style="padding-left:7em"><strong>Item Model:</strong> @itemType.Model</h6>
+                                                        break;
+                                                    }
+                                                    
+                                            }                   
+                                    
+                                        </div>
+                                    </div>
+                                }
+
+                            }
+                        }
+                    </div>
+               </div>           
+        </div>
+        break;
+    }
+}
+    
+    @*//Other Company Issues*@
+
+    <!--
+    @*<!--Pel-->
+    if (item.Company.Equals("Pel"))
+    {
+        <div class="panel panel-default">
+            <div class="panel-heading"><h4>Pel</h4></div>
+
+            <div class="panel-body">
+                <div class="row">
+                    @foreach (Item itemType in Model)
+                    {
+                        if (itemType.Type.Equals("Food Care "))
+                        {
+                            <div class="col-md-4">
+                                <a href="#" class="thumbnail">
+                                    @foreach (Photo photo in @ViewBag.PhotoList)
+                                    {
+                                        if (photo.ModelName.Equals(itemType.Model))
+                                        {
+                                            <img src="~/Images/Pel/Food/@photo.FileName" alt="...">
+                                            <h6 class="h6" style="padding-left:7em"><strong>Price:</strong> @itemType.Price PKR</h6>
+                                            <h6 class="h6" style="padding-left:7em"><strong>Item Name:</strong> @itemType.Name </h6>
+                                            <h6 class="h6" style="padding-left:7em"><strong>Item Model:</strong> @itemType.Model</h6>
+                                            break;
+                                        }
+                                    }
+
+                                </a>
+                            </div>
+                        }
+                        break;
+                    }
+                </div>
+            </div>
+        </div>
+    }
+
+    <!--Haier-->
+    if (item.Company.Equals("Haier"))
+    {
+        <div class="panel panel-default">
+            <div class="panel-heading"><h4>Haier</h4></div>
+
+            <div class="panel-body">
+                <div class="row">
+                    @foreach (Item itemType in Model)
+                    {
+                        if (itemType.Type.Equals("Food Care "))
+                        {
+                            <div class="col-md-4">
+                                <a href="#" class="thumbnail">
+                                    @foreach (Photo photo in @ViewBag.PhotoList)
+                                    {
+                                        if (photo.ModelName.Equals(itemType.Model))
+                                        {
+                                            <img src="~/Images/Haier/Food/@photo.FileName" alt="...">
+                                            <h6 class="h6" style="padding-left:7em"><strong>Price:</strong> @itemType.Price PKR</h6>
+                                            <h6 class="h6" style="padding-left:7em"><strong>Item Name:</strong> @itemType.Name </h6>
+                                            <h6 class="h6" style="padding-left:7em"><strong>Item Model:</strong> @itemType.Model</h6>
+                                            break;
+                                        }
+                                    }
+
+                                </a>
+                            </div>
+                        }
+                        break;
+                    }
+                </div>
+            </div>
+        </div>
+    }*@
+}
+
+
+@*@foreach (var item in Model)
+{
+
+    
+    break;
+}*@
+
+
+@*@foreach (var item in Model)
+{
+
+    
+    break;
+}*@
+-->
+    
+    
+    
+    @*//Hard Coded*@
+
+    <!--
+@*<html>
+    <head>
+        <title></title>
+        <script type="text/javascript" src="~/Scripts/lib/jquery-1.10.1.min.js"></script>
+        <script src="~/Scripts/source/jquery.fancybox.js"></script>
+        <link rel="stylesheet" href="~/Content/jquery.fancybox.css" media="screen">
+
+
+
+        <script type="text/javascript">
+            $(document).ready(function () {
+                /*
+                 *  Simple image gallery. Uses default settings
+                 */
+
+                $('.fancybox').fancybox();
+            });
+        </script>
+
+    </head>
+
+    <body>
+        <div class="panel panel-default">
+
+            <div class="panel-heading"><h4>Dawlance</h4></div>
+            <div class="panel-body">
+                <div class="row">
+
+                    <div class="col-md-4">
+                        <div class="thumbnail">
+                            <a class="fancybox" href="~/Images/Dawlance/01.png" data-fancybox-group="gallery" title="Dawlance"><img src="~/Images/Dawlance/01.png" alt="" /></a>
+
+                            <h6 class="h6" style="padding-left:7em">Price: 5,000 PKR</h6>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4">
+                        <div class="thumbnail">
+                            <a class="fancybox" href="~/Images/Dawlance/02.jpg" data-fancybox-group="gallery" title="Dawlance"><img src="~/Images/Dawlance/02.jpg" alt="" /></a>
+
+                            <h6 class="h6" style="padding-left:7em">Price: 5,000 PKR</h6>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4">
+                        <div class="thumbnail">
+                            <a class="fancybox" href="~/Images/Dawlance/03.jpg" data-fancybox-group="gallery" title="Dawlance"><img src="~/Images/Dawlance/03.jpg" alt="" /></a>
+
+                            <h6 class="h6" style="padding-left:7em">Price: 5,000 PKR</h6>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <br>
+
+        <div class="panel panel-default">
+
+            <div class="panel-heading"><h4>Pel</h4></div>
+            <div class="panel-body">
+                <div class="row">
+
+                    <div class="col-md-4">
+                        <div class="thumbnail">
+                            <a class="fancybox" href="~/Images/Dawlance/01.png" data-fancybox-group="gallery" title="Pel"><img src="~/Images/Dawlance/01.png" alt="" /></a>
+
+                            <h6 class="h6" style="padding-left:7em">Price: 5,000 PKR</h6>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4">
+                        <div class="thumbnail">
+                            <a class="fancybox" href="~/Images/Dawlance/02.jpg" data-fancybox-group="gallery" title="Pel"><img src="~/Images/Dawlance/02.jpg" alt="" /></a>
+
+                            <h6 class="h6" style="padding-left:7em">Price: 5,000 PKR</h6>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4">
+                        <div class="thumbnail">
+                            <a class="fancybox" href="~/Images/Dawlance/03.jpg" data-fancybox-group="gallery" title="Pel"><img src="~/Images/Dawlance/03.jpg" alt="" /></a>
+
+                            <h6 class="h6" style="padding-left:7em">Price: 5,000 PKR</h6>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+    </body>
+
+    </html>*@
+
+        -->

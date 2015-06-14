@@ -1,0 +1,54 @@
+﻿@{
+    ViewBag.Title = "GetFabricPel";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+@using Zakria.Models
+<br>
+
+<!--Admin Pel-->
+@foreach (var item in Model)
+{
+
+    if (item.Company.Equals("Pel"))
+    {
+        <div class="panel panel-default">
+            <div class="panel-heading"><h4>Pel</h4></div>
+
+            <div class="panel-body">
+                <div class="row">
+                    @foreach (Item itemType in Model)
+                    {
+                        if (itemType.Company.Equals("Pel"))
+                        {
+                            if (itemType.Type.Equals("Fabric Care"))
+                            {
+                                <div class="col-md-4">
+                                    <div href="#" class="thumbnail">
+                                        @foreach (Photo photo in @ViewBag.PhotoList)
+                                        {
+                                            if (photo.ModelName.Equals(itemType.Model))
+                                            {
+                                                <img src="~/Images/Pel/Fabric/@photo.FileName" alt="...">
+                                                <a href="EditQuantity?id=@itemType.Id"><h6 style="color:brown"><strong>Quantity: </strong>@itemType.Quantity</h6></a>
+                                                <a href="EditPrice?id=@itemType.Id"><h6 class="h6" style="padding-left:7em"><strong>Price:</strong> @itemType.Price PKR</h6></a>
+                                                <a href="EditName?id=@itemType.Id"><h6 class="h6" style="padding-left:7em"><strong>Item Name:</strong> @itemType.Name </h6></a>
+                                                <h6 class="h6" style="padding-left:7em"><strong>Item Model:</strong> @itemType.Model</h6>
+                                                <a href="RemoveItem?id=@itemType.Id"><h6 style="color:brown"><strong>Remove Item</strong></h6></a>
+                                                break;
+                                            }
+                                        }
+
+                                    </div>
+                                </div>
+                            }
+
+                        }
+                    }
+                </div>
+            </div>
+        </div>
+                    break;
+    }
+
+}

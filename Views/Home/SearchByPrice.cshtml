@@ -1,0 +1,42 @@
+﻿
+@{
+    ViewBag.Title = "SearchByPrice";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<br />
+<div class="row">
+    <div class="form-group">
+        <label>Minimum Price</label>
+        <input class="form-control" type="number" id="inp1" name="inp1" min="1" />
+    </div>
+
+    <div class="form-group">
+        <label>Maximum Price</label>
+        <input class="form-control" type="number" id="inp2" name="inp2" min="1" />
+    </div>
+    <br>
+    <button type="submit" class="btn btn-default" id="b1">Search</button>
+</div>
+
+<br><br>
+
+<div class="row">
+    <div class="col-md-12">
+        <div id="result2">
+        </div>
+    </div>
+</div>
+
+@Scripts.Render("~/bundles/jquery")
+<script>
+    $(document).ready(function () {
+        $('#b1').click(function () {
+            var value1 = $('#inp1').val();
+            var value2 = $('#inp2').val();
+            //alert(value1);
+            //alert(value2);
+            $('#result2').load('/Home/SearchPrice?inp1='+ value1+'&inp2='+value2);
+        });
+    });
+</script>

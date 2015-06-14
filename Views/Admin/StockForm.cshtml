@@ -1,0 +1,94 @@
+﻿@{
+    ViewBag.Title = "StockForm";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+<!--Strongly Typed View-->
+@using Zakria.Models
+
+<script type='text/javascript' src="~/Scripts/jquery-1.8.2.min.js"></script>
+
+<script type='text/javascript'>
+    $('.selectpicker').selectpicker({
+        style: 'btn-info',
+        size: 4
+    });
+    $('.selectpicker').selectpicker();
+</script>
+<script>
+    function Item() {
+        alert("Item successfully added");
+    }
+
+</script>
+
+<br><br>
+<div class="row; col-md-pull-2">
+    <form onsubmit="Item()" action="/Admin/ValidateStock" method="post" enctype="multipart/form-data">
+        <div class="form-group">
+            <label>Name of Item</label>
+            <input type="text" class="form-control" id="name" name="Name" placeholder="e.g. Microwave" required>
+        </div>
+
+        <div class="form-group">
+            <label>Model</label>
+            <input type="text" class="form-control" id="model" name="Model" placeholder="e.g. Classic Series-DW 372" required>
+        </div>
+
+        <div class="form-group">
+            <label>Price</label>
+            <input type="number" class="form-control" id="price" name="Price" placeholder="e.g. 5000" min="1" required>
+        </div>
+
+        <div class="form-group">
+            <label>Quantity</label>
+            <input type="number" class="form-control" id="quantity" name="Quantity" min="1" placeholder="e.g. 5" required>
+        </div>
+
+        <div class="form-group">
+            <label>Company</label>
+            <select class="form-control" name="Company" required>
+                @foreach (Company comp in Model)
+                {
+                    <option>@comp.CompanyName</option>
+                }              
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label>Type &nbsp;</label>
+            <select class="selectpicker" name="Type" required>
+                <option>Food Care</option>
+                <option>Fabric Care</option>
+                <option>Home Care</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label>Upload photograph</label>
+            <input type="file" id="fileUpload" name="photo" required>
+            <p class="help-block">kindly keep the photo size less than 8MB.</p>
+        </div>
+
+        <div class="form-group">
+            <label>Upload photograph</label>
+            <input type="file" id="fileUpload" name="photo1">
+            
+        </div>
+
+        <div class="form-group">
+            <label>Upload photograph</label>
+            <input type="file" id="fileUpload" name="photo2">
+            
+        </div>
+
+        <div class="form-group">
+            <label>Upload photograph</label>
+            <input type="file" id="fileUpload" name="photo3">
+            
+        </div>
+
+        <button type="submit" class="btn btn-default">Submit</button>
+    </form>
+    
+</div>
+

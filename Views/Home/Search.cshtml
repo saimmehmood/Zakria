@@ -1,0 +1,70 @@
+﻿
+@{
+    ViewBag.Title = "Search";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@*<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>*@
+
+<div class="row">
+    <div class="col-md-3">
+        <div class="panel panel-default">
+            <div class="panel-heading"><h6>Search</h6></div>
+
+            <div class="panel-body">
+                <div class="row">
+
+
+                    <form action="/Home/SearchByName">
+                        <button id="b1" name="b1" type="submit" class="btn btn-default">Search By Name</button>
+                    </form>
+
+                    <br />
+
+                    <form action="/Home/SearchByCompany">
+                        <button id="b2" type="submit" class="btn btn-default">Search By Companies</button>
+                    </form>
+
+                    <br />
+
+                    <form action="/Home/SearchByPrice">
+                        <button id="b3" type="submit" class="btn btn-default">Search By Price</button>
+                    </form>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <div class="col-md-9">
+        <div id="company"></div>
+    </div>
+
+</div>
+
+@*@Scripts.Render("~/bundles/jquery")
+<script>
+    $(document).ready(function () {
+        $('#b2').click(function () {
+            alert("Here");
+            $('#company').load('/Home/SearchByCompany');
+        });
+    });
+</script>*@
+
+
+@*<script>
+
+    $(document).ready(function () {
+        $('#b1').click(function () {
+            
+            var target = '/Home/SearchByName';
+           // alert("I am here");
+            $('#result').load(target);
+
+        });
+    });
+
+</script>*@

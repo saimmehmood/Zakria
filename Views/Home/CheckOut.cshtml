@@ -1,0 +1,41 @@
+﻿
+@{
+    ViewBag.Title = "CheckOut";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@using Zakria.Models
+<h2>Thank you for shopping at Zakria Electronics!</h2>
+<hr>
+
+@{
+    int total = 0;
+}
+<table class="table" border="1" align="center">
+    <tr>
+        <td style="text-align:center"><b>Item Name</b></td>
+        <td style="text-align:center"><b>Item Model</b></td>
+        <td style="text-align:center"><b>Item Price</b></td>
+    </tr>
+    @foreach (Cart cart in @ViewBag.List)
+    {
+
+        if (cart.Person.Equals(@Session["email"]))
+        {
+            <tr>
+                <td style="text-align:center">@cart.ItemName</td>
+                <td style="text-align:center">@cart.ItemModel</td>
+                <td style="text-align:center">@cart.ItemPrice</td>
+                @{
+                    total += int.Parse(cart.ItemPrice);
+                }
+
+            </tr>
+        }
+
+    }
+</table>
+
+<h4><strong>Total Bill: </strong> @total PKR</h4>  
+<br>
+

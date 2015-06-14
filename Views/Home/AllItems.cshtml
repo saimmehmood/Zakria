@@ -1,0 +1,60 @@
+﻿@{
+    ViewBag.Title = "AllItems";
+    Layout = null;
+}
+
+@using Zakria.Models
+<br>
+
+<!--Dawlance-->
+<div class="panel panel-default">
+    <div class="panel-body">
+        <div class="row">
+            @foreach (Item item in Model)
+            {
+                //if (item.Type.Equals("Food Care "))
+                //{
+                <div class="col-md-4">
+                    <div href="#" class="thumbnail">
+                        @foreach (Photo photo in @ViewBag.PhotoList)
+                        {
+                            if (photo.ModelName.Equals(item.Model))
+                            {
+                                <a href="/Home/Slider?inp=@item.Model"><img src="~/Images/@photo.FileName" alt="..." /></a>
+
+                                if (@Session["email"] != null && @Session["email"].ToString() != "admin@gmail.com")
+                                {
+                                    <a href="AddCart?id=@item.Id"><h6 style="color:brown"><strong>Add to Cart</strong></h6></a>
+
+
+                                    <h6 class="h6" style="padding-left:7em"><strong>Price:</strong> @item.Price PKR</h6>
+                                    <h6 class="h6" style="padding-left:7em"><strong>Item Name:</strong> @item.Name </h6>
+                                    <h6 class="h6" style="padding-left:7em"><strong>Item Model:</strong> @item.Model</h6>
+                                }
+                                if (@Session["email"] != null && @Session["email"].ToString().Equals("admin@gmail.com"))
+                                {
+                                    <a href="/Admin/EditQuantity?id=@item.Id"><h6 style="color:brown"><strong>Quantity: </strong>@item.Quantity</h6></a>
+                                    <a href="/Admin/EditPrice?id=@item.Id"><h6 class="h6" style="padding-left:7em"><strong>Price:</strong> @item.Price PKR</h6></a>
+                                    <a href="/Admin/EditName?id=@item.Id"><h6 class="h6" style="padding-left:7em"><strong>Item Name:</strong> @item.Name </h6></a>
+                                    <h6 class="h6" style="padding-left:7em"><strong>Item Model:</strong> @item.Model</h6>
+                                    <a href="/Admin/RemoveItem?id=@item.Id"><h6 style="color:brown"><strong>Remove Item</strong></h6></a>
+                                }
+                                else
+                                {
+                                    <h6 class="h6" style="padding-left:7em"><strong>Price:</strong> @item.Price PKR</h6>
+                                    <h6 class="h6" style="padding-left:7em"><strong>Item Name:</strong> @item.Name </h6>
+                                    <h6 class="h6" style="padding-left:7em"><strong>Item Model:</strong> @item.Model</h6>
+                                }
+                                
+                                break;
+                            }
+
+                        }
+
+                    </div>
+                </div>
+
+            }
+        </div>
+    </div>
+</div>

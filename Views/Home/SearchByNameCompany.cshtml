@@ -1,0 +1,34 @@
+﻿
+@{
+    Layout = null;
+}
+
+<br />
+<div class="form-group">
+    <label>Enter Name of Item</label>
+    <input class="form-control" type="text" name="Input" required />
+    <br>
+    <input type="button" id="b1" class="btn btn-default" value="Search" />
+</div>
+
+
+<div class="row">
+    <div class="col-md-12">
+        <div id="result5">
+        </div>
+    </div>
+</div>
+
+@Scripts.Render("~/bundles/jquery")
+<script>
+
+    $('#b1').click(function ()
+    {
+        var value = $('input').val();
+        //alert(value)
+        //alert(ViewBag.company)
+        //$('#result5').load('/Home/SearchForCompany?Input=' + value +'&Comapny='+ViewBag.company);
+        $('#result5').load('/Home/SearchForAll?Input=' + value);
+    });
+
+</script>

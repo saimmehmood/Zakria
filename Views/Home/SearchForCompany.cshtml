@@ -1,0 +1,39 @@
+﻿
+@{
+    ViewBag.Title = "SearchForCompany";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@using Zakria.Models;
+
+<div class="panel panel-default">
+    <div class="panel-body">
+        <div class="row">
+            @foreach (Item item in Model)
+            {
+                <div class="col-md-4">
+                    <div href="#" class="thumbnail">
+                        @foreach (Photo photo in @ViewBag.PhotoList)
+                        {
+                            if (photo.ModelName.Equals(item.Model))
+                            {
+                                <img src="~/Images/@photo.FileName" alt="..." />
+
+                                if (@Session["email"] != null)
+                                {
+                                    <a href="AddCart?id=@item.Id"><h6 style="color:brown"><strong>Add to Cart</strong></h6></a>
+                                }
+
+                                <h6 class="h6" style="padding-left:7em"><strong>Price:</strong> @item.Price PKR</h6>
+                                <h6 class="h6" style="padding-left:7em"><strong>Item Name:</strong> @item.Name </h6>
+                                <h6 class="h6" style="padding-left:7em"><strong>Item Model:</strong> @item.Model</h6>
+                                break;
+                            }
+                        }
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</div>
+

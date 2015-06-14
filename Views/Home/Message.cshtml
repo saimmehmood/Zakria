@@ -1,0 +1,31 @@
+﻿
+@{
+    ViewBag.Title = "Message";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<form action="/Home/StoreMessage" method="post">
+    <div class="form-group">
+        <br>
+        <label>Title</label>
+        <input type="text" class="form-control" name="Title" placeholder="Some Issue" required>
+    </div>
+
+    <div class="form-group">
+        <label>Message</label>
+        <textarea rows="5" cols="50" name="Body" class="form-control" placeholder="Feel free to write us anything!" required></textarea>
+    </div>
+
+    @if (@Session["email"] == null)
+    {
+        <div class="form-group">
+            <label>Email</label>
+            <input type="email" class="form-control" name="Email" placeholder="jango.studio.pucit@gmail.com" required>
+        </div>
+    }
+    
+    <button type="submit" class="btn btn-default">Submit</button>
+</form>
+
+
+
