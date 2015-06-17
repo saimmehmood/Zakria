@@ -25,10 +25,10 @@
     $('#b1').click(function ()
     {
         var value = $('input').val();
-        //alert(value)
-        //alert(ViewBag.company)
+        alert(value)
+        alert(@Model)
         //$('#result5').load('/Home/SearchForCompany?Input=' + value +'&Comapny='+ViewBag.company);
-        $('#result5').load('/Home/SearchForAll?Input=' + value);
+        $('#result5').load('/Home/SearchForAll?Input=' + value + '& Comp='+ ViewBag.company);
     });
 
 </script>

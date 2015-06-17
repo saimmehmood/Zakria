@@ -16,10 +16,17 @@
         }
     </select>
 </div>
+<br />
+<div class="form-group">
+    <label>Enter Name of Item</label>
+    <input class="form-control" type="text" name="Input" required />
+    <br>
+    <input type="button" id="b1" class="btn btn-default" value="Search" />
+</div>
 
 <div class="row">
     <div class="col-md-12">
-        <div id="result3">
+        <div id="result5">
         </div>
     </div>
 </div>
@@ -27,15 +34,25 @@
 @Scripts.Render("~/bundles/jquery")
 <script>
 
-    $('#Selector').change(function ()
+    $('#b1').click(function ()
     {
-        var value = $('#Selector').val();
+        var value = $('input').val();
         //alert(value);
-        $('#result3').load('/Home/SearchByNameCompany?inp=' + value);
-        //$('#result3').load('/Home/SearchByName');
-        //alert(value)
-        //$('#result3').load('/Home/SearchForCompany?Input=' + value);
-       
+        var value2 = $('#Selector').val();
+        //alert(value2);
+        //$('#result5').load('/Home/SearchForCompany?Input=' + value +'&Comapny='+ViewBag.company);
+        $('#result5').load('/Home/SearchForAll?Input=' + value + '&Comp='+ value2);
     });
+
+    //$('#Selector').change(function ()
+    //{
+    //    var value = $('#Selector').val();
+    //    //alert(value);
+    //    $('#result3').load('/Home/SearchByNameCompany?inp=' + value);
+    //    //$('#result3').load('/Home/SearchByName');
+    //    //alert(value)
+    //    //$('#result3').load('/Home/SearchForCompany?Input=' + value);
+
+    //});
 
 </script>
